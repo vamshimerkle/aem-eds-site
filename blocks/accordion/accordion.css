@@ -1,0 +1,58 @@
+.accordion .accordion-list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #ddd;
+}
+
+.accordion dt {
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion dt button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  background: none;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text-color, #333);
+}
+
+.accordion dt button::after {
+  content: '+';
+  font-size: 24px;
+  font-weight: 300;
+  color: #666;
+  transition: transform 0.2s ease;
+}
+
+.accordion dt button[aria-expanded="true"]::after {
+  content: '−';
+}
+
+.accordion dt button:hover {
+  background-color: #f5f5f5;
+}
+
+.accordion dd {
+  margin: 0;
+  padding: 0 20px 20px;
+  border-bottom: 1px solid #ddd;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-color, #555);
+}
+
+.accordion dd p {
+  margin: 0 0 8px;
+}
+
+.accordion dd p:last-child {
+  margin-bottom: 0;
+}
