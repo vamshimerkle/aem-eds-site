@@ -1,8 +1,31 @@
+const PRODUCT_INDEX_PATH = '/products/query-index.json';
+
 async function fetchProductIndex() {
-  const resp = await fetch('/query-index.json');
+  const resp = await fetch(PRODUCT_INDEX_PATH);
   if (!resp.ok) return [];
   const { data } = await resp.json();
   return data || [];
+}
+
+async function fetchContentFragment(cfpath) {
+  if (!cfpath) return null;
+  const resp = await fetch(`${cfpath}.json`);
+  if (!resp.ok) return null;
+  const cf = await resp.json();
+  return cf;
+}
+
+async function enrichWithCFData(product) {
+  if (!product.cfpath) return product;
+  const cf = await fetchContentFragment(product.cfpath);
+  if (!cf) return product;
+  return {
+    ...product,
+    title: cf.title || product.title,
+    description: cf.description || product.description,
+    ctapath: cf.ctapath || product.ctapath || product.path,
+    image: cf.image || product.image,
+  };
 }
 
 function filterByTag(products, tag) {
@@ -72,9 +95,11 @@ export default async function decorate(block) {
   const allProducts = await fetchProductIndex();
   const filtered = filterByTag(allProducts, tag);
 
+  const enriched = await Promise.all(filtered.map(enrichWithCFData));
+
   block.textContent = '';
 
-  if (filtered.length === 0) {
+  if (enriched.length === 0) {
     const empty = document.createElement('p');
     empty.className = 'product-listing-empty';
     empty.textContent = `No products found for "${tag}".`;
@@ -90,7 +115,7 @@ export default async function decorate(block) {
   const grid = document.createElement('div');
   grid.className = 'product-listing-grid';
 
-  filtered.forEach((product) => {
+  enriched.forEach((product) => {
     grid.append(createProductCard(product));
   });
 

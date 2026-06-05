@@ -1,0 +1,28 @@
+version: 1
+indices:
+  products:
+    include:
+      - /products/**
+    target: /products/query-index.json
+    properties:
+      title:
+        select: head > meta[property="og:title"]
+        value: attribute(el, "content")
+      description:
+        select: head > meta[name="description"]
+        value: attribute(el, "content")
+      image:
+        select: head > meta[property="og:image"]
+        value: attribute(el, "content")
+      tags:
+        select: head > meta[name="tags"]
+        value: attribute(el, "content")
+      cfpath:
+        select: head > meta[name="cfpath"]
+        value: attribute(el, "content")
+      ctapath:
+        select: head > meta[name="ctapath"]
+        value: attribute(el, "content")
+      lastModified:
+        select: none
+        value: dateValue(headers["last-modified"], "ddd, DD MMM YYYY hh:mm:ss GMT")
