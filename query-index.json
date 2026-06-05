@@ -1,0 +1,55 @@
+{
+  "total": 6,
+  "offset": 0,
+  "limit": 6,
+  "data": [
+    {
+      "path": "/products/trail-runner-pro",
+      "title": "Trail Runner Pro",
+      "description": "Built for rugged terrain with reinforced toe caps and aggressive tread patterns. Waterproof and durable.",
+      "image": "/drafts/images/trail-runner.jpg",
+      "tags": "running-shoes, trail",
+      "ctapath": "/products/trail-runner-pro"
+    },
+    {
+      "path": "/products/road-racer-elite",
+      "title": "Road Racer Elite",
+      "description": "Ultra-lightweight racing flat designed for speed. Carbon fiber plate for maximum energy return.",
+      "image": "/drafts/images/road-racer.jpg",
+      "tags": "running-shoes, road",
+      "ctapath": "/products/road-racer-elite"
+    },
+    {
+      "path": "/products/daily-comfort-500",
+      "title": "Daily Comfort 500",
+      "description": "Responsive cushioning for everyday training. Breathable mesh upper with supportive heel counter.",
+      "image": "/drafts/images/daily-comfort.jpg",
+      "tags": "running-shoes, casual",
+      "ctapath": "/products/daily-comfort-500"
+    },
+    {
+      "path": "/products/hiking-explorer",
+      "title": "Hiking Explorer",
+      "description": "All-terrain hiking boot with ankle support and Vibram outsole. Perfect for mountain trails.",
+      "image": "/drafts/images/hiking-explorer.jpg",
+      "tags": "hiking, outdoor",
+      "ctapath": "/products/hiking-explorer"
+    },
+    {
+      "path": "/products/sprint-master",
+      "title": "Sprint Master",
+      "description": "Track and field sprint spike for competitive athletes. Ultra-light with 6-pin spike plate.",
+      "image": "/drafts/images/sprint-master.jpg",
+      "tags": "running-shoes, track",
+      "ctapath": "/products/sprint-master"
+    },
+    {
+      "path": "/products/casual-walker",
+      "title": "Casual Walker",
+      "description": "Everyday walking shoe with memory foam insole. Classic style meets all-day comfort.",
+      "image": "/drafts/images/casual-walker.jpg",
+      "tags": "walking, casual",
+      "ctapath": "/products/casual-walker"
+    }
+  ]
+}
